@@ -1,7 +1,0 @@
-admin
-username dikshant1
-password Password1!
-
-mysql super user
-username root
-password 123456

@@ -1,0 +1,14 @@
+{% extends 'calendars/base.html' %}
+{% block content %}
+<div class="container">
+  <hr />
+  <h1>Calendar Events</h1>
+    <a href="/calendars/add_c"> Add Calendar Event</a>
+  <hr />
+  <div class="row">
+      {% for entry in entries %}
+        {% include 'calendars/_calendar_entry.html'%}
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}

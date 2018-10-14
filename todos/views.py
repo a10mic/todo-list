@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 from .models import Todo
 
@@ -30,6 +30,6 @@ def add(request):
         todo =Todo(title=title, text=text)
         todo.save()
 
-        return redirect('/todos')
+        return HttpResponseRedirect('/todos')
     else:
         return render(request, 'add.html')
