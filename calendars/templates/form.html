@@ -1,9 +1,18 @@
 {% extends 'calendars/base.html' %}
 {% block content%}
-
+<div class="container form-group">
   <form method="POST">
+    <a href="/calendars">Go Back</a>
+    <br />
+    <h1>ADD A NEW ENTRY</h1>
     {% csrf_token %}
-    {{form}}
+    {% for field in form %}
+      {{ field.errors }}
+      <label>{{ field.label }}</label>
+      <input placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control"/>
+      <br /><br />
+    {% endfor %}
     <button type="submit">Submit</button>
   </form>
+</div>
 {% endblock%}

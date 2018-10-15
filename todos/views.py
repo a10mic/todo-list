@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect
 
 from .models import Todo
@@ -33,3 +33,10 @@ def add(request):
         return HttpResponseRedirect('/todos')
     else:
         return render(request, 'add.html')
+
+def delete(request, id):
+    if request.method == 'DELETE':
+        entry = get_object_or_404(Todo, id=id)
+        entry.delete()
+
+    return HttpResponseRedirect('/todos')

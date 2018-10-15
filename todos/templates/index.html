@@ -2,6 +2,8 @@
      <ul>
          {% for todo in todos %}
          <li><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>: {{todo.text}}</li>
+         <button data-id="{{ todo.id }}" onclick="deleteTodoEntry(this)" >Delete</button>
+         <br />
          {% endfor %}
      </ul>
 

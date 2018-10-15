@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Calendar</title>
-  <a href="/calendars/add_c"> Add Calendar Event</a>
   {% load static %}
   <link rel="stylesheet" href="{% static 'calendars/css/style.css'%}" />
 </head>
@@ -13,5 +12,7 @@
   {% block content %}
 
   {% endblock %}
+  <script src="{% static 'calendars/js/calendar.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
