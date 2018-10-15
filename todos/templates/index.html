@@ -1,4 +1,11 @@
 {% include 'partials/header.html'%}
+  {% if request.user.is_authenticated %}
+    <span>Hello, {{ request.user.username }}</span>
+    <a href="{% url 'logout' %}">Logout</a>
+  {% endif %}
+  <br />
+  <a href="{% url 'home' %}">Home</a>
+  <br /> <hr />
      <ul>
          {% for todo in todos %}
          <li><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>: {{todo.text}}</li>

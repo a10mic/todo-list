@@ -3,7 +3,14 @@
 <div class="container">
   <hr />
   <h1>Calendar Events</h1>
-    <a href="/calendars/add_c"> Add Calendar Event</a>
+  <a href="{% url 'home' %}">Home</a>
+  <br />
+  {% if request.user.is_authenticated %}
+    <span>Hello, {{ request.user.username }}</span>
+    <a href="{% url 'logout' %}">Logout</a>
+  {% endif %}
+  <br />
+  <a href="/calendars/add_c"> Add Calendar Event</a>
   <hr />
   <div class="row">
       {% for entry in entries %}

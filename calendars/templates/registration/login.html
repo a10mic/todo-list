@@ -1,0 +1,16 @@
+{% extends 'calendars/base.html' %}
+{% block content %}
+  <form method="POST">
+    <br />
+    <h1>Login</h1>
+    {% csrf_token %}
+    {% for field in form %}
+      {{ field.errors }}
+      <input type="{% if field.label == 'Password' %}password{% else %}input{% endif %}" placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control"/>
+      <br /><br />
+    {% endfor %}
+    <button type="submit">Login</button>
+    <br /><br />
+    <a href="/signup">Signup</a>
+  </form>
+{% endblock %}

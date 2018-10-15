@@ -1,0 +1,12 @@
+{% extends 'calendars/base.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+  <h1>Welcome {{ request.user.username }}</h1>
+  <a href="{% url 'logout' %}">Logout</a>
+{% endif %}
+<br /> <hr />
+<a href="{% url 'index1' %}">Enter a calendar event</a>
+<br />
+<a href="{% url 'index' %}">Enter a Todo</a>
+
+{% endblock %}
