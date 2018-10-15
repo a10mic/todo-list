@@ -7,17 +7,20 @@ from .forms import EntryForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout,authenticate,login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-
+@login_required
 def index1(request):
-    entries = Entry.objects.all()
+    entries = Entry.objects.filter(author= request.user)
     return render(request,'calendars/index1.html',{'entries': entries})
 
+@login_required
 def home(request):
     return render(request,'home.html')
 
+@login_required
 def details_c(request,pk):
     entry = Entry.objects.get(id=pk)
 
@@ -25,7 +28,7 @@ def details_c(request,pk):
         'entry': entry
     }
     return render(request, 'details_c.html',context)
-
+@login_required
 def add_c(request):
     if(request.method == 'POST'):
         form = EntryForm(request.POST)
@@ -37,6 +40,7 @@ def add_c(request):
 
             Entry.objects.create(
                 name=name,
+                author= request.user,
                 date = date,
                 description = description,
             ).save()
@@ -46,6 +50,7 @@ def add_c(request):
 
     return render(request, 'form.html', {'form':form})
 
+@login_required
 def delete_c(request , pk):
     if request.method == 'DELETE':
         entry = get_object_or_404(Entry, pk=pk)
