@@ -1,19 +1,32 @@
-Todo List:
-	This app has ability for user login , add/delete todos, add/delete calendar events and managing todos and events.
+# Todo List
 
-Prequisites:
-	You will need following softwares to be able to run the software:
-		-> Python 3.66 or above
-		-> Django 2.1 or above
+This app has ability for user login , add/delete todos, add/delete calendar events and managing todos and events.
 
-Installing:
-	->In terminal go the the app directory 
-	->run database migrations by "python3 manage.py migrate"
-	->run the server by "python3 manage.py runserver "
-	->Open ip address in browser and use the todolist app
+## Getting Started
 
-Build with:
-	->Python
-	->Django-The web framework
+Setup project environment with [virtualenv](https://virtualenv.pypa.io) and [pip](https://pip.pypa.io).
+
+```bash
+$ virtualenv project-env
+$ source project-env/bin/activate
+$ pip install django
+
+# Clone the project repository
+$ git clone https://github.com/dikshantj/todo-list.git 
+
+$ cd todo-list/
+$ python manage.py migrate
+$ python manage.py runserver
+```
+
+## Features
+
+* User login system
+* Todo lists
+* Calender Event Management
+
+## Contributing
+
+I love contributions, so please feel free to fix bugs, improve things, provide documentation. Just send a pull request.
 
 
