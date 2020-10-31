@@ -14,6 +14,7 @@ $ pip install django
 # Clone the project repository
 $ git clone https://github.com/dikshantj/todo-list.git 
 
+# Run Django Server
 $ cd todo-list/
 $ python manage.py migrate
 $ python manage.py runserver
